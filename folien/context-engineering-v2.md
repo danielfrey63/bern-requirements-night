@@ -136,8 +136,8 @@ Generelle Installation der Workshop Unterlagen:
 - In den [Privacy Settings](https://openrouter.ai/settings/privacy) «Enable free endpoints that may train on inputs» und «Enable free endpoints that may publish prompts» ermöglichen.
 - Konfiguration für Kilo Code Plugin anpassen. Modell-Filter «free».
 
-| Privacy Settings für OpenRouter              | Konfiguration von Kilo Code Plugin               |
-| --------------------------------------------- | ------------------------------------------------ |
+| Privacy Settings für OpenRouter                 | Konfiguration von Kilo Code Plugin                 |
+| ---------------------------------------------   | -------------------------------------------------- |
 | ![OpenRouter Settings](openrouter-settings.png) | ![Kilo Code Settings](kilo-openrouter-gpt-oss.png) |
 
 ## Freie LLM Provider – Google Gemini / Kilo Code
@@ -146,8 +146,8 @@ Generelle Installation der Workshop Unterlagen:
 - Ein [API Key](https://aistudio.google.com/api-keys) wird automatisch erstellt (Screenshot rechts).
 - Konfiguration für Kilo Code Plugin anpassen. Modell-Filter «free».
 
-| Google AI Studio API Key                        | Konfiguration von Kilo Code Plugin               |
-| ----------------------------------------------- | ------------------------------------------------ |
+| Google AI Studio API Key                          | Konfiguration von Kilo Code Plugin                 |
+| ------------------------------------------------- | -------------------------------------------------- |
 | ![Google AI Studio API Key](google-ai-studio.png) | ![Kilo Code Settings](kilo-openrouter-gpt-oss.png) |
 
 ## Freie LLM Provider – Google Gemini / Kilo Code
@@ -167,3 +167,6 @@ Generelle Installation der Workshop Unterlagen:
   - Eingeben: `./decrypt.sh ./secrets.zip.aes ./zugaenge.zip`
 - Auf Windows PowerShell:
   - Eingeben: `./decrypt.ps1 ./secrets.zip.aes ./zugaenge.zip`
+- Kilo Code Plugin konfigurieren
+
+![Kilo Code Settings](kilo-qdrant.png)
