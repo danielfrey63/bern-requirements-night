@@ -136,8 +136,8 @@ Generelle Installation der Workshop Unterlagen:
 - In den [Privacy Settings](https://openrouter.ai/settings/privacy) «Enable free endpoints that may train on inputs» und «Enable free endpoints that may publish prompts» ermöglichen.
 - Konfiguration für Kilo Code Plugin anpassen. Modell-Filter «free».
 
-| Privacy Settings für OpenRouter                 | Konfiguration von Kilo Code Plugin                 |
-| ---------------------------------------------   | -------------------------------------------------- |
+| Privacy Settings für OpenRouter              | Konfiguration von Kilo Code Plugin               |
+| --------------------------------------------- | ------------------------------------------------ |
 | ![OpenRouter Settings](openrouter-settings.png) | ![Kilo Code Settings](kilo-openrouter-gpt-oss.png) |
 
 ## Freie LLM Provider – Google Gemini / Kilo Code
@@ -146,8 +146,8 @@ Generelle Installation der Workshop Unterlagen:
 - Ein [API Key](https://aistudio.google.com/api-keys) wird automatisch erstellt (Screenshot rechts).
 - Konfiguration für Kilo Code Plugin anpassen. Modell-Filter «free».
 
-| Google AI Studio API Key                          | Konfiguration von Kilo Code Plugin                 |
-| ------------------------------------------------- | -------------------------------------------------- |
+| Google AI Studio API Key                        | Konfiguration von Kilo Code Plugin               |
+| ----------------------------------------------- | ------------------------------------------------ |
 | ![Google AI Studio API Key](google-ai-studio.png) | ![Kilo Code Settings](kilo-openrouter-gpt-oss.png) |
 
 ## Freie LLM Provider – Google Gemini / Kilo Code
@@ -161,7 +161,7 @@ Generelle Installation der Workshop Unterlagen:
 ## Installation RAG
 
 - GitHub Repo klonen: `git clone https://github.com/danielfrey63/bern-requirements-night.git`
-- Auf Terminal: `cd bern-requirements-night`
+- Auf Terminal: `cd bern-requirements-night/secrets`
 - Auf MacOS und Linux:
   - Eingeben: `chmod +x ./decrypt.sh`
   - Eingeben: `./decrypt.sh ./secrets.zip.aes ./zugaenge.zip`
