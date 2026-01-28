@@ -20,7 +20,8 @@ echo
 read -r key_hex iv_hex < <(
 python3 - <<'PY' "$in" "$pw"
 import sys, binascii, hashlib
-path, pw = sys.argv[1], sys.argv[2].encode("utf-8")
+path = sys.argv[1]
+pw = sys.argv[2].encode("utf-16-le")
 with open(path, "rb") as f:
     salt = f.read(16)
 dk = hashlib.pbkdf2_hmac("sha256", pw, salt, 200000, dklen=48)
