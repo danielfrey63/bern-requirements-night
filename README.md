@@ -16,11 +16,11 @@ In vielen Projekten laufen Realität (Code) und Dokumentation (Requirements) sch
 
 ```
 2026/
-├── ausschreibung/          # Workshop-Ausschreibung und Proposal
-│   ├── ausschreibung.md    # Kurzbeschreibung des Workshops
-│   ├── proposal.md         # Detailliertes Workshop-Konzept
-│   └── proposal.pdf        # PDF-Version des Proposals
-├── folien/                 # Präsentationsmaterialien
+├── ausschreibung/                   # Workshop-Ausschreibung und Proposal
+│   ├── ausschreibung.md             # Kurzbeschreibung des Workshops
+│   ├── proposal.md                  # Detailliertes Workshop-Konzept
+│   └── proposal.pdf                 # PDF-Version des Proposals
+├── folien/                          # Präsentationsmaterialien
 │   ├── context-engineering-v2.md    # Folien als Markdown
 │   ├── context-engineering-v2.pdf   # Folien als PDF
 │   ├── process.svg                  # Prozess-Diagramm (Vektor)
@@ -31,19 +31,19 @@ In vielen Projekten laufen Realität (Code) und Dokumentation (Requirements) sch
 │   ├── kilo-kimi-k2.5.png           # Screenshot: Kilo Code + Kimi
 │   ├── kilo-openrouter-gpt-oss.png  # Screenshot: OpenRouter GPT
 │   └── kilo-qdrant.png              # Screenshot: Qdrant Integration
-├── projects/               # Beispielprojekte für die Übungen
-│   ├── barcode-reader-app/         # Barcode-Scanner App
-│   ├── EnergyInfoSwiss-MobileApp/  # Energie-Info App
-│   └── sonnendach-ui/              # Sonnendach UI
-├── secrets/                # Verschlüsselte Zugangsdaten
-│   ├── decrypt.ps1         # Entschlüsselungsskript (PowerShell)
-│   ├── decrypt.sh          # Entschlüsselungsskript (Bash)
-│   ├── encrypt.ps1         # Verschlüsselungsskript (PowerShell)
-│   └── zugaenge.zip.aes    # Verschlüsselte Zugangsdaten
-├── system-prompt/          # System-Prompt Dokumentation
-│   ├── system-prompt.md    # Ausführlicher System-Prompt
-│   └── system-prompt.pdf   # PDF-Version
-└── .gitignore              # Git Ignore-Regeln
+├── projects/                        # Beispielprojekte für die Übungen
+│   ├── barcode-reader-app/          # Barcode-Scanner App
+│   ├── EnergyInfoSwiss-MobileApp/   # Energie-Info App
+│   └── sonnendach-ui/               # Sonnendach UI
+├── secrets/                         # Verschlüsselte Zugangsdaten
+│   ├── decrypt.ps1                  # Entschlüsselungsskript (PowerShell)
+│   ├── decrypt.sh                   # Entschlüsselungsskript (Bash)
+│   ├── encrypt.ps1                  # Verschlüsselungsskript (PowerShell)
+│   └── zugaenge.zip.aes             # Verschlüsselte Zugangsdaten
+├── system-prompt/                   # System-Prompt Dokumentation
+│   ├── system-prompt.md             # Ausführlicher System-Prompt
+│   └── system-prompt.pdf            # PDF-Version
+└── .gitignore                       # Git Ignore-Regeln
 ```
 
 ---
