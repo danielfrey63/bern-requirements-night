@@ -164,9 +164,10 @@ Generelle Installation der Workshop Unterlagen:
 - Auf Terminal: `cd bern-requirements-night/secrets`
 - Auf MacOS und Linux:
   - Eingeben: `chmod +x ./decrypt.sh`
-  - Eingeben: `./decrypt.sh ./secrets.zip.aes ./zugaenge.zip`
+  - Eingeben: `./decrypt.sh ./secrets.zip.aes`
 - Auf Windows PowerShell:
-  - Eingeben: `./decrypt.ps1 ./secrets.zip.aes ./zugaenge.zip`
+  - Eingeben: `./decrypt.ps1 ./secrets.zip.aes`
+  - Falls ein Fehler auftaucht wg. Policy: `Set-ExecutionPolicy RemoteSigned`
 - Kilo Code Plugin konfigurieren
 
 ![Kilo Code Settings](kilo-qdrant.png)
