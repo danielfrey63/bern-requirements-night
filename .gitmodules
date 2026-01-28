@@ -1,0 +1,9 @@
+[submodule "projects/barcode-reader-app"]
+	path = projects/barcode-reader-app
+	url = https://github.com/swisspost/barcode-reader-app.git
+[submodule "projects/sonnendach-ui"]
+	path = projects/sonnendach-ui
+	url = https://github.com/SFOE/sonnendach-ui.git
+[submodule "projects/EnergyInfoSwiss-MobileApp"]
+	path = projects/EnergyInfoSwiss-MobileApp
+	url = https://github.com/SFOE/EnergyInfoSwiss-MobileApp.git
