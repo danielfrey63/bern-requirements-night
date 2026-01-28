@@ -1,15 +1,37 @@
 param(
   [Parameter(Mandatory=$true)][string]$InFile,          # z.B. secrets.zip.aes
-  [string]$OutDir = ".\out"                             # Zielordner
+  [string]$OutDir = ".\out"                             # Zielordner oder Output-Datei
 )
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
 if (!(Test-Path -LiteralPath $InFile)) { throw "InFile nicht gefunden: $InFile" }
-New-Item -ItemType Directory -Force -Path $OutDir | Out-Null
 
-$tmpZip = Join-Path (Resolve-Path -LiteralPath $OutDir).Path ("tmp_" + [Guid]::NewGuid().ToString("N") + ".zip")
+$outExists = Test-Path -LiteralPath $OutDir
+$outIsDir = $false
+if ($outExists) {
+  $outIsDir = (Test-Path -LiteralPath $OutDir -PathType Container)
+}
+
+$outLooksLikeFile = (-not [string]::IsNullOrWhiteSpace([IO.Path]::GetExtension($OutDir)))
+$treatAsFile = ($outLooksLikeFile -and (-not $outIsDir))
+
+if ($treatAsFile) {
+  $outFilePath = [IO.Path]::GetFullPath($OutDir, (Get-Location).Path)
+  $outFileDir = Split-Path -Parent $outFilePath
+  if ([string]::IsNullOrWhiteSpace($outFileDir)) { throw "Ungueltiger OutDir/OutFile: $OutDir" }
+  if (!(Test-Path -LiteralPath $outFileDir)) { New-Item -ItemType Directory -Force -Path $outFileDir | Out-Null }
+
+  $extractDir = Join-Path ([IO.Path]::GetTempPath()) ("decrypt_" + [Guid]::NewGuid().ToString("N"))
+  New-Item -ItemType Directory -Force -Path $extractDir | Out-Null
+  $tmpZip = Join-Path $extractDir ("tmp_" + [Guid]::NewGuid().ToString("N") + ".zip")
+}
+else {
+  New-Item -ItemType Directory -Force -Path $OutDir | Out-Null
+  $extractDir = (Resolve-Path -LiteralPath $OutDir).Path
+  $tmpZip = Join-Path $extractDir ("tmp_" + [Guid]::NewGuid().ToString("N") + ".zip")
+}
 
 try {
   $pw = Read-Host "Passwort" -AsSecureString
@@ -33,9 +55,22 @@ try {
 
   $outFs.Dispose(); $cs.Dispose(); $inFs.Dispose()
 
-  Expand-Archive -LiteralPath $tmpZip -DestinationPath $OutDir -Force
-  Write-Host "OK: entpackt nach $OutDir"
+  Expand-Archive -LiteralPath $tmpZip -DestinationPath $extractDir -Force
+
+  if ($treatAsFile) {
+    $items = Get-ChildItem -LiteralPath $extractDir -File -Recurse
+    if ($items.Count -ne 1) {
+      throw "Archiv enthaelt $($items.Count) Dateien; kann nicht eindeutig nach '$outFilePath' schreiben."
+    }
+
+    Move-Item -LiteralPath $items[0].FullName -Destination $outFilePath -Force
+    Write-Host "OK: geschrieben nach $outFilePath"
+  }
+  else {
+    Write-Host "OK: entpackt nach $extractDir"
+  }
 }
 finally {
   if (Test-Path -LiteralPath $tmpZip) { Remove-Item -LiteralPath $tmpZip -Force }
+  if ($treatAsFile -and (Test-Path -LiteralPath $extractDir)) { Remove-Item -LiteralPath $extractDir -Recurse -Force }
 }
